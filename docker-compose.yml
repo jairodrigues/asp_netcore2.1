@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  curso.udemy:
+    image: ${DOCKER_REGISTRY}cursoudemy
+    build:
+      context: .
+      dockerfile: Curso.Udemy/Dockerfile

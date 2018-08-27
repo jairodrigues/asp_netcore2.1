@@ -1,0 +1,319 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Restiful API with ASP.NET Core 2.0"
+  },
+  "paths": {
+    "localhost:53619/api/v1/Books": {
+      "get": {
+        "tags": [ "Books" ],
+        "operationId": "ApiV{versionBooksGet",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "put": {
+        "tags": [ "Books" ],
+        "operationId": "ApiV{versionBooksPut",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json", "application/xml", "text/xml", "application/*+xml" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "book",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/BookDTO" }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "post": {
+        "tags": [ "Books" ],
+        "operationId": "ApiV{versionBooksPost",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json", "application/xml", "text/xml", "application/*+xml" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "book",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/BookDTO" }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "localhost:53619/api/v1/Books/{id}": {
+      "get": {
+        "tags": [ "Books" ],
+        "operationId": "ApiV{versionBooksByIdGet",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      },
+      "delete": {
+        "tags": [ "Books" ],
+        "operationId": "ApiV{versionBooksByIdDelete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } }
+      }
+    },
+    "localhost:53619/api/v1/Persons": {
+      "get": {
+        "tags": [ "Persons" ],
+        "operationId": "ApiV{versionPersonsGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "uniqueItems": false,
+              "type": "array",
+              "items": { "$ref": "#/definitions/PersonDTO" }
+            }
+          },
+          "204": { "description": "Success" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "post": {
+        "tags": [ "Persons" ],
+        "operationId": "ApiV{versionPersonsPost",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json", "application/xml", "text/xml", "application/*+xml" ],
+        "produces": [ "text/plain", "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "person",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/PersonDTO" }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/PersonDTO" }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "localhost:53619/api/v1/Persons/{id}": {
+      "get": {
+        "tags": [ "Persons" ],
+        "operationId": "ApiV{versionPersonsByIdGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/PersonDTO" }
+          },
+          "204": { "description": "Success" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "put": {
+        "tags": [ "Persons" ],
+        "operationId": "ApiV{versionPersonsByIdPut",
+        "consumes": [ "application/json-patch+json", "application/json", "text/json", "application/*+json", "application/xml", "text/xml", "application/*+xml" ],
+        "produces": [ "text/plain", "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "person",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/PersonDTO" }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/PersonDTO" }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      },
+      "delete": {
+        "tags": [ "Persons" ],
+        "operationId": "ApiV{versionPersonsByIdDelete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "Success" },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "BookDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Autor": { "type": "string" },
+        "Data": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Preço": {
+          "format": "double",
+          "type": "number"
+        },
+        "Title": { "type": "string" }
+      }
+    },
+    "PersonDTO": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "address": { "type": "string" },
+        "gender": { "type": "string" },
+        "links": {
+          "uniqueItems": false,
+          "type": "array",
+          "items": { "$ref": "#/definitions/HyperMediaLink" }
+        }
+      }
+    },
+    "HyperMediaLink": {
+      "type": "object",
+      "properties": {
+        "rel": { "type": "string" },
+        "href": { "type": "string" },
+        "type": { "type": "string" },
+        "action": { "type": "string" }
+      }
+    }
+  }
+}
