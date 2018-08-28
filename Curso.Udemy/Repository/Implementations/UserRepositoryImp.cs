@@ -16,10 +16,9 @@ namespace Curso.Udemy.Repository.Implementations
             _context = context;
         }
         
-        public User FindByLogin(int login)
+        public User FindByLogin(string login)
         {
-            return _context.Users.SingleOrDefault(u => u.Login.Equals(login));
+            return _context.User.SingleOrDefault(u => u.Login.Equals(login));
         }
-
     }
 }

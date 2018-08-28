@@ -8,6 +8,7 @@ namespace Curso.Udemy.Repository
 {
     public interface IUserRepository
     {
-        User FindByLogin(int login);
+        User FindByLogin(string login);
+       
     }
 }
