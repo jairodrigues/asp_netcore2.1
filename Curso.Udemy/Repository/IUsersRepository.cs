@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Curso.Udemy.Repository
 {
-    public interface IUserRepository
+    public interface IUsersRepository
     {
-        User FindByLogin(string login);
+        Users FindByLogin(string login);
        
     }
 }

@@ -5,21 +5,22 @@ using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using Curso.Udemy.Data.DTO;
 using Curso.Udemy.Model;
 using Curso.Udemy.Repository;
 using Curso.Udemy.Security.Configuration;
 
 namespace Curso.Udemy.Business.Implementations
 {
-    public class LoginBusinessImp : ILoginBusiness
+    public class LoginRepositoryImp : ILoginBusiness
     {
 
-        private IUserRepository _repository;
-        private SigningConfigurations _signingConfigurations;
+        private IUsersRepository _repository;
+        private SigningConfiguration _signingConfigurations;
         private TokenConfiguration _tokenConfiguration;
 
 
-        public LoginBusinessImp(IUserRepository repository, SigningConfigurations signingConfigurations, TokenConfiguration tokenConfiguration)
+        public LoginRepositoryImp(IUsersRepository repository, SigningConfiguration signingConfigurations, TokenConfiguration tokenConfiguration)
         {
             _repository = repository;
             _signingConfigurations = signingConfigurations;
@@ -27,7 +28,7 @@ namespace Curso.Udemy.Business.Implementations
 
         }
 
-        public object FindByLogin(UserDTO user)
+        public object FindByLogin(UsersDTO user)
         {
             bool credentialsIsValid = false;
             if(user != null && !string.IsNullOrWhiteSpace(user.Login))
@@ -58,7 +59,7 @@ namespace Curso.Udemy.Business.Implementations
             }
         }
 
-        private string CreateToken(ClaimsIdenty identity, DateTime createDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
+        private string CreateToken(ClaimsIdentity identity, DateTime createDate, DateTime expirationDate, JwtSecurityTokenHandler handler)
         {
             var securityToken = handler.CreateToken(new Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor
             {

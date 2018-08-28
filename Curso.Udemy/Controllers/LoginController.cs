@@ -18,7 +18,7 @@ namespace Curso.Udemy.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public object Post([FromBody]User user)
+        public object Post([FromBody]Users user)
         {
             if (user == null) return BadRequest();
             return _loginBusiness.FindByLogin(user);

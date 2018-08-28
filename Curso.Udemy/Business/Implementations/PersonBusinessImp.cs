@@ -8,10 +8,10 @@ namespace Curso.Udemy.Business.Implementations
     public class PersonBusinessImp : IPersonBusiness
     {
 
-        private UserRepository _repository;
+        private IPersonRepository _repository;
         private readonly PersonConverter _converter;
 
-        public PersonBusinessImp(UserRepository repository)
+        public PersonBusinessImp(IPersonRepository repository)
         {
             _repository = repository;
             _converter = new PersonConverter();

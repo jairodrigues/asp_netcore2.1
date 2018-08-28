@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Swashbuckle.AspNetCore.Swagger;
 using Tapioca.HATEOAS;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Curso.Udemy.Controllers
 {
@@ -26,6 +27,7 @@ namespace Curso.Udemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
@@ -38,6 +40,7 @@ namespace Curso.Udemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
@@ -50,6 +53,7 @@ namespace Curso.Udemy.Controllers
         [ProducesResponseType(typeof(PersonDTO), 201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody]PersonDTO person)
         {
@@ -61,6 +65,7 @@ namespace Curso.Udemy.Controllers
         [ProducesResponseType(typeof(PersonDTO), 202)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put(int id, [FromBody]PersonDTO person)
         {
@@ -74,6 +79,7 @@ namespace Curso.Udemy.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {

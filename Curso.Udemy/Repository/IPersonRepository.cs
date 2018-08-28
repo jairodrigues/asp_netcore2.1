@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Curso.Udemy.Repository
 {
-    public interface UserRepository
+    public interface IPersonRepository
     {
         Person Create(Person person);
         Person FindById(int id);

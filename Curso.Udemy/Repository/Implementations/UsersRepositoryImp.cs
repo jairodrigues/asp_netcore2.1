@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Curso.Udemy.Repository.Implementations
 {
-    public class UserRepositoryImp : IUserRepository
+    public class UsersRepositoryImp : IUsersRepository
     {
         private readonly SqlContext _context;
 
-        public UserRepositoryImp(SqlContext context)
+        public UsersRepositoryImp(SqlContext context)
         {
             _context = context;
         }
         
-        public User FindByLogin(string login)
+        public Users FindByLogin(string login)
         {
             return _context.User.SingleOrDefault(u => u.Login.Equals(login));
         }
