@@ -51,5 +51,10 @@ namespace Curso.Udemy.Business.Implementations
         {
             return _repository.Exists(id);
         }
+
+        public List<PersonDTO> FindById(string firstName, string lastName)
+        {
+            return _converter.ParseList(_repository.findByName(firstName, lastName));
+        }
     }
 }

@@ -7,7 +7,7 @@ using Curso.Udemy.Model.Context;
 
 namespace Curso.Udemy.Repository.Implementations
 {
-    public class PersonRepositoryImp : UserRepository
+    public class PersonRepositoryImp : IPersonRepository
     {
         private readonly SqlContext _context;
 
@@ -32,12 +32,12 @@ namespace Curso.Udemy.Repository.Implementations
 
         public void Delete(int id)
         {
-            var result = _context.Users.SingleOrDefault(p => p.Id.Equals(id));
+            var result = _context.Person.SingleOrDefault(p => p.Id.Equals(id));
             try
             {
                 if(result != null)
                 {
-                    _context.Users.Remove(result);
+                    _context.Person.Remove(result);
                     _context.SaveChanges();
 
                 }
@@ -49,19 +49,19 @@ namespace Curso.Udemy.Repository.Implementations
 
         public List<Person> findAll()
         {
-            return _context.Users.ToList();
+            return _context.Person.ToList();
         }
 
         public Person FindById(int id)
         {
-            return _context.Users.SingleOrDefault(p => p.Id.Equals(id));
+            return _context.Person.SingleOrDefault(p => p.Id.Equals(id));
         }
 
         public Person Update(Person person)
         {
             if (!Exists(person.Id)) return new Person();
 
-            var result = _context.Users.SingleOrDefault(p => p.Id == person.Id);
+            var result = _context.Person.SingleOrDefault(p => p.Id == person.Id);
             if(result != null)
             {
                 try{
@@ -78,7 +78,29 @@ namespace Curso.Udemy.Repository.Implementations
 
         public bool Exists(int? id)
         {
-            return _context.Users.Any(p => p.Id.Equals(id));
+            return _context.Person.Any(p => p.Id.Equals(id));
+        }
+
+        public List<Person> findByName(string firstName, string lastName)
+        {
+            if(!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+            {
+                return _context.Person.Where(p => p.FirstName.Equals(firstName) && p.LastName.Equals(lastName)).ToList();
+            }
+            else if(string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+            {
+                return _context.Person.Where(p => p.LastName.Equals(lastName)).ToList();
+            }
+            else if (!string.IsNullOrEmpty(firstName) && string.IsNullOrEmpty(lastName))
+            {
+                return _context.Person.Where(p => p.FirstName.Equals(firstName)).ToList();
+            }
+            else
+            {
+                return _context.Person.ToList();
+            }
+
+
         }
     }
 }

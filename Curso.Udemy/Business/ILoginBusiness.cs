@@ -9,7 +9,7 @@ namespace Curso.Udemy.Business
 {
     public interface ILoginBusiness
     {
-       object FindByLogin(UserDTO user);
+       object FindByLogin(UsersDTO user);
     }
 }
 

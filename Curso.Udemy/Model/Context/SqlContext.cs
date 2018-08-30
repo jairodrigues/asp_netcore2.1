@@ -8,7 +8,7 @@ namespace Curso.Udemy.Model.Context
         public SqlContext(DbContextOptions<SqlContext> options) : base(options) { }
         public DbSet<Person> Person { get; set; }
         public DbSet<Book> Book { get; set; }
-        public DbSet<Users> User { get; set; }
+        public DbSet<Users> Users { get; set; }
 
     }
 }

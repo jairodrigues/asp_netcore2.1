@@ -49,6 +49,18 @@ namespace Curso.Udemy.Controllers
             return Ok(person);
         }
 
+        [HttpGet("find-by-name")]
+        [ProducesResponseType(typeof(List<PersonDTO>), 200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetByName([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+           return new OkObjectResult(_personBusiness.FindById(firstName, lastName));
+        }
+
         [HttpPost]
         [ProducesResponseType(typeof(PersonDTO), 201)]
         [ProducesResponseType(400)]
@@ -61,13 +73,27 @@ namespace Curso.Udemy.Controllers
             return new ObjectResult(_personBusiness.Create(person));
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         [ProducesResponseType(typeof(PersonDTO), 202)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put(int id, [FromBody]PersonDTO person)
+        {
+            if (person == null) return BadRequest();
+            var updatePerson = _personBusiness.Update(person);
+            if (updatePerson == null) return BadRequest();
+            return new ObjectResult(updatePerson);
+        }
+
+        [HttpPatch]
+        [ProducesResponseType(typeof(PersonDTO), 202)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch(int id, [FromBody]PersonDTO person)
         {
             if (person == null) return BadRequest();
             var updatePerson = _personBusiness.Update(person);

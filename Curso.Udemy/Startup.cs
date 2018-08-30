@@ -83,7 +83,7 @@ namespace Curso.Udemy
             //Injeçoes de dependencia
             services.AddScoped<IPersonBusiness, PersonBusinessImp>();
             services.AddScoped<IBookBusiness, BookBusinessImp>();
-            services.AddScoped<UserRepository, PersonRepositoryImp>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImp>();
             services.AddScoped<ILoginBusiness, LoginRepositoryImp>();
             services.AddScoped<IUsersRepository, UsersRepositoryImp>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));

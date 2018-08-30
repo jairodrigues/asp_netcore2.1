@@ -15,5 +15,6 @@ namespace Curso.Udemy.Business
         List<PersonDTO> findAll();
         PersonDTO Update(PersonDTO person);
         void Delete(int id);
+        List<PersonDTO> FindById(string firstName, string lastName);
     }
 }

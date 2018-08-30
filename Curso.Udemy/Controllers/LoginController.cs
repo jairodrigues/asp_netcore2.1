@@ -1,4 +1,5 @@
 ﻿using Curso.Udemy.Business;
+using Curso.Udemy.Data.DTO;
 using Curso.Udemy.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace Curso.Udemy.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public object Post([FromBody]Users user)
+        public object Post([FromBody]UsersDTO user)
         {
             if (user == null) return BadRequest();
             return _loginBusiness.FindByLogin(user);
