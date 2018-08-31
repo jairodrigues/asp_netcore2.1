@@ -30,9 +30,9 @@ namespace Curso.Udemy.Business.Implementations
             
         }
 
-        public List<PersonDTO> findAll()
+        public List<PersonDTO> FindAll()
         {
-            return _converter.ParseList(_repository.findAll());
+            return _converter.ParseList(_repository.FindAll());
         }
 
         public PersonDTO FindById(int id)

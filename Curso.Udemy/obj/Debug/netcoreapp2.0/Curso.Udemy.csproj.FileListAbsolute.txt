@@ -3,9 +3,9 @@ C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\bin\Debug\netcoreapp2.0\Cur
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\bin\Debug\netcoreapp2.0\Curso.Udemy.runtimeconfig.dev.json
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\bin\Debug\netcoreapp2.0\Curso.Udemy.dll
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\bin\Debug\netcoreapp2.0\Curso.Udemy.pdb
+C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.csprojAssemblyReference.cache
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.csproj.CoreCompileInputs.cache
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.AssemblyInfoInputs.cache
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.AssemblyInfo.cs
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.dll
 C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.pdb
-C:\Users\mackenzie\Documents\Curso.Udemy\Curso.Udemy\obj\Debug\netcoreapp2.0\Curso.Udemy.csprojAssemblyReference.cache

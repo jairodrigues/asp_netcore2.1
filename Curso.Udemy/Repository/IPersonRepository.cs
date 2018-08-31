@@ -10,10 +10,11 @@ namespace Curso.Udemy.Repository
     {
         Person Create(Person person);
         Person FindById(int id);
-        List<Person> findAll();
+        List<Person> FindAll();
         List<Person> findByName(string firstName, string lastName);
         Person Update(Person person);
         void Delete(int id);
         bool Exists(int? id);
+        List<Person> FindWithPagedSearch(string query);
     }
 }

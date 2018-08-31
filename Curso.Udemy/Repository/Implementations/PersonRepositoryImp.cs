@@ -47,7 +47,7 @@ namespace Curso.Udemy.Repository.Implementations
             }
         }
 
-        public List<Person> findAll()
+        public List<Person> FindAll()
         {
             return _context.Person.ToList();
         }
@@ -85,7 +85,7 @@ namespace Curso.Udemy.Repository.Implementations
         {
             if(!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
             {
-                return _context.Person.Where(p => p.FirstName.Equals(firstName) && p.LastName.Equals(lastName)).ToList();
+                return _context.Person.Where(p => p.FirstName.Contains(firstName) && p.LastName.Contains(lastName)).ToList();
             }
             else if(string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
             {
@@ -101,6 +101,11 @@ namespace Curso.Udemy.Repository.Implementations
             }
 
 
+        }
+
+        public List<Person> FindWithPagedSearch(string query)
+        {
+            return _context.FromSql<Person>(query).ToList();
         }
     }
 }

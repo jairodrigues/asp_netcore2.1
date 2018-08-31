@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 
 namespace Curso.Udemy.Model.Context
 {
@@ -10,5 +11,9 @@ namespace Curso.Udemy.Model.Context
         public DbSet<Book> Book { get; set; }
         public DbSet<Users> Users { get; set; }
 
+        internal object FromSql<T>(string query)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

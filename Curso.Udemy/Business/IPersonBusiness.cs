@@ -12,7 +12,7 @@ namespace Curso.Udemy.Business
     {
         PersonDTO Create(PersonDTO person);
         PersonDTO FindById(int id);
-        List<PersonDTO> findAll();
+        List<PersonDTO> FindAll();
         PersonDTO Update(PersonDTO person);
         void Delete(int id);
         List<PersonDTO> FindById(string firstName, string lastName);

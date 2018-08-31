@@ -31,7 +31,7 @@ namespace Curso.Udemy.Controllers
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
-            var result = _personBusiness.findAll();
+            var result = _personBusiness.FindAll();
             return Ok(result);
         }
 
