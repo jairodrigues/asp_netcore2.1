@@ -16,5 +16,6 @@ namespace Curso.Udemy.Repository
         void Delete(int id);
         bool Exists(int? id);
         List<Person> FindWithPagedSearch(string query);
+        int GetCount(string query);
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Curso.Udemy.Model;
 using Curso.Udemy.Model.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Curso.Udemy.Repository.Implementations
 {
@@ -105,7 +106,24 @@ namespace Curso.Udemy.Repository.Implementations
 
         public List<Person> FindWithPagedSearch(string query)
         {
-            return _context.FromSql<Person>(query).ToList();
+            return _context.Person.FromSql(query).ToList();
+        }
+
+        public int GetCount(string query)
+        {
+            var result = "";
+            using (var connection = _context.Database.GetDbConnection())
+            {
+                connection.Open();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    result = command.ExecuteScalar().ToString();
+                }
+            }
+
+            return Int32.Parse(result);
         }
     }
 }

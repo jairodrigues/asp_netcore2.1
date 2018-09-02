@@ -16,7 +16,8 @@ namespace Curso.Udemy.Controllers
     {
        
         private IPersonBusiness _personBusiness;
-   
+
+
         public PersonsController(IPersonBusiness personBusiness)
         {
             _personBusiness = personBusiness;
@@ -33,6 +34,18 @@ namespace Curso.Udemy.Controllers
         {
             var result = _personBusiness.FindAll();
             return Ok(result);
+        }
+
+        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType(typeof(List<PersonDTO>),200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetPagedSearch([FromQuery] string name, string sortDirection, int pageSize, int page)
+        {
+            return new OkObjectResult(_personBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
         }
 
         [HttpGet("{id}")]

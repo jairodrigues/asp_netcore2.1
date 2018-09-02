@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tapioca.HATEOAS.Utils;
 
 namespace Curso.Udemy.Business
 
@@ -16,5 +17,6 @@ namespace Curso.Udemy.Business
         PersonDTO Update(PersonDTO person);
         void Delete(int id);
         List<PersonDTO> FindById(string firstName, string lastName);
+        PagedSearchDTO<PersonDTO> FindWithPagedSearch(string name, string sortDirection, int pageSize, int page);
     }
 }
