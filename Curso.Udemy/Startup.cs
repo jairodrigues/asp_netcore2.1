@@ -84,7 +84,8 @@ namespace Curso.Udemy
             services.AddScoped<IPersonBusiness, PersonBusinessImp>();
             services.AddScoped<IBookBusiness, BookBusinessImp>();
             services.AddScoped<IPersonRepository, PersonRepositoryImp>();
-            services.AddScoped<ILoginBusiness, LoginRepositoryImp>();
+            services.AddScoped<ILoginBusiness, LoginBusinessImp>();
+            services.AddScoped<IFileBusiness, FileBusinessImp>();
             services.AddScoped<IUsersRepository, UsersRepositoryImp>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 

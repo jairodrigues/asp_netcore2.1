@@ -12,7 +12,7 @@ using Curso.Udemy.Security.Configuration;
 
 namespace Curso.Udemy.Business.Implementations
 {
-    public class LoginRepositoryImp : ILoginBusiness
+    public class LoginBusinessImp : ILoginBusiness
     {
 
         private IUsersRepository _repository;
@@ -20,7 +20,7 @@ namespace Curso.Udemy.Business.Implementations
         private TokenConfiguration _tokenConfiguration;
 
 
-        public LoginRepositoryImp(IUsersRepository repository, SigningConfiguration signingConfigurations, TokenConfiguration tokenConfiguration)
+        public LoginBusinessImp(IUsersRepository repository, SigningConfiguration signingConfigurations, TokenConfiguration tokenConfiguration)
         {
             _repository = repository;
             _signingConfigurations = signingConfigurations;
