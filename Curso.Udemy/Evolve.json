@@ -2,6 +2,6 @@
   "Evolve.Driver": "sqlserver",
   "Evolve.ConnectionString": "Server=127.0.0.1;Database=cursoUdemy;User Id=sa;Password=Juninho99",
   "Evolve.Locations": "db",
-  "Evolve.Command": "migrate",
+  "Evolve.Command": "",
   "Evolve.Placeholder.table4": "table_4"
 }

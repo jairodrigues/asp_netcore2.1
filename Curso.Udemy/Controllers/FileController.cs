@@ -31,7 +31,7 @@ namespace Curso.Udemy.Controllers
                 HttpContext.Response.ContentType = "application/pdf";
                 HttpContext.Response.Headers.Add("content-length", buffer.Length.ToString());
                 HttpContext.Response.Body.Write(buffer, 0, buffer.Length);
-            }              
+            }               
 
             return new ContentResult();
         }

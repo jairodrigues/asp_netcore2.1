@@ -82,6 +82,8 @@ namespace Curso.Udemy.Controllers
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody]PersonDTO person)
         {
+            // descobrir quem esta fazendo a solicitação pelo token
+            var userName = User.Identity.Name;
             if (person == null) return NotFound();
             return new ObjectResult(_personBusiness.Create(person));
         }

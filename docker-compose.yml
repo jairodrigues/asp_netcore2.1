@@ -1,8 +1,32 @@
 version: '3.4'
 
 services:
+  db:
+    image: microsoft/mssql-server-linux:2017-latest
+    restart: always
+    environment:
+      "ACCEPT_EULA=Y"
+      "SA_PASSWORD=Juninho99" 
+    ports:
+      - "1433:1433"
+    networks:
+      - udemy-network
   curso.udemy:
-    image: ${DOCKER_REGISTRY}cursoudemy
+    image: UdemyRestApi
     build:
       context: .
       dockerfile: Curso.Udemy/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5000:80"
+    links:
+      - db
+    depends_ond:
+      - db
+    networks:
+      - udemy-network
+
+  networks:
+    udemy-network:
+      driver: bridge
